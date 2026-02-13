@@ -69,7 +69,12 @@ function App() {
       const exportButton = element.querySelector('button[class*="Download"]');
       const originalButtonDisplay = exportButton?.style.display;
 
+      // Hide h2 with gradient background (Hasil Evaluasi)
+      const gradientHeading = element.querySelector('h2[class*="bg-gradient"]');
+      const originalHeadingDisplay = gradientHeading?.style.display;
+
       if (exportButton) exportButton.style.display = 'none';
+      if (gradientHeading) gradientHeading.style.display = 'none';
 
       // Set background for PDF export
       element.style.backgroundColor = '#ffffff';
@@ -118,6 +123,7 @@ function App() {
         element.style.backdropFilter = originalBackdrop;
         element.className = originalBgClass;
         if (exportButton) exportButton.style.display = originalButtonDisplay || '';
+        if (gradientHeading) gradientHeading.style.display = originalHeadingDisplay || '';
 
         allElements.forEach((el, index) => {
           if (el instanceof HTMLElement && originalColors[`el-${index}`] !== undefined) {
@@ -130,6 +136,7 @@ function App() {
         element.style.backdropFilter = originalBackdrop;
         element.className = originalBgClass;
         if (exportButton) exportButton.style.display = originalButtonDisplay || '';
+        if (gradientHeading) gradientHeading.style.display = originalHeadingDisplay || '';
       });
     }
   };
